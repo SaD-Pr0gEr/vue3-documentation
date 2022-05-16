@@ -4,7 +4,7 @@ const App = Vue.createApp({
             product: "Socks",
             brand: "Vue company",
             selectedVariantIndex: 0,
-            // inventory: 20,
+            onSale: true,
             details: ["50% cotton", "30% wool", "20% polyester"],
             variants: [
                 {id: 1, color: "blue", image: "./assets/img/blue_socks.png", quantity: 20},
@@ -35,6 +35,9 @@ const App = Vue.createApp({
         },
         inStock() {
             return this.variants[this.selectedVariantIndex].quantity
+        },
+        onSaleComputed() {
+            return this.onSale ? `${this.brand} ${this.product} is on sale` : ""
         }
     }
 })
