@@ -9,7 +9,8 @@ const App = Vue.createApp({
                 {id: 1, color: "blue", image: "./assets/img/blue_socks.png"},
                 {id: 2, color: "green", image: "./assets/img/green_socks.png"},
             ],
-            cart: 0
+            cart: 0,
+            inStock: false
         }
     },
     methods: {
