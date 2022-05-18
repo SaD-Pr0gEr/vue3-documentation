@@ -13,9 +13,9 @@
     <div id="app">
         <div class="nav-bar"></div>
         <div class="cart">
-            Cart({{ cart }})
+            Cart({{ cart.length }})
         </div>
-        <product-info :premium="premium"></product-info>
+        <product-info :premium="premium" @add-to-cart="addProduct"></product-info>
     </div>
     <script src="main.js"></script>
     <script src="./components/ProductDisplay.js"></script>

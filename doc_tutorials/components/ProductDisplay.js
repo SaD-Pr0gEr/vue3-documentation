@@ -49,7 +49,9 @@ App.component('product-info', {
     },
     methods: {
         addToCart() {
-            this.inStock ? this.cart += 1 : null
+            if(this.inStock) {
+                this.$emit("add-to-cart", this.variants[this.selectedVariantIndex].id)
+            }
         },
         removeFromCart() {
             if (this.cart >= 1) {
@@ -71,7 +73,7 @@ App.component('product-info', {
             return this.variants[this.selectedVariantIndex].quantity
         },
         onSaleComputed() {
-            return this.onSale ? `${this.brand} ${this.product} is on sale` : ""
+            return this.onSale ? `${this.brand} ${this.product} is on sale` : `${this.brand} ${this.product} isn't on sale`
         },
         shipping() {
             return this.premium ? "Free" : "3.99$"
