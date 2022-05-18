@@ -54,9 +54,7 @@ App.component('product-info', {
             }
         },
         removeFromCart() {
-            if (this.cart >= 1) {
-                this.cart -= 1
-            }
+            this.$emit("remove-from-cart", this.variants[this.selectedVariantIndex].id)
         },
         updateVariant(productIndex) {
             this.selectedVariantIndex = productIndex

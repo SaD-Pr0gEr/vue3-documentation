@@ -15,7 +15,7 @@
         <div class="cart">
             Cart({{ cart.length }})
         </div>
-        <product-info :premium="premium" @add-to-cart="addProduct"></product-info>
+        <product-info :premium="premium" @add-to-cart="addProduct" @remove-from-cart="removeProduct"></product-info>
     </div>
     <script src="main.js"></script>
     <script src="./components/ProductDisplay.js"></script>
