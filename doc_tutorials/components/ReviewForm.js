@@ -18,25 +18,32 @@ App.component("review-form", {
             <option>2</option>
             <option>1</option>
         </select>
+        <label for="recommend">Would you recommended this product?</label>
+        <select v-model="recommended" id="recommend">
+            <option>yes</option>
+            <option>no</option>
+        </select>
         <input type="submit" class="button" value="Submit">
     </form>`,
     data() {
         return {
             name: "",
             review: "",
-            rating: null
+            rating: null,
+            recommended: null
         }
     },
     methods: {
         onSubmit() {
-            if (!this.name || !this.review || !this.rating) {
+            if (!this.name || !this.review || !this.rating || !this.recommended) {
                 alert("Validation failed")
                 return
             }
             let productReview = {
                 name: this.name,
                 review: this.review,
-                rating: this.rating
+                rating: this.rating,
+                recommended: this.recommended
             }
             this.$emit("review-submitted", productReview)
             this.resetProductData()
@@ -45,6 +52,7 @@ App.component("review-form", {
             this.name = ""
             this.review = ""
             this.rating = null
+            this.recommended = null
         }
     }
 })
