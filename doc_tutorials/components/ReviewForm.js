@@ -29,6 +29,10 @@ App.component("review-form", {
     },
     methods: {
         onSubmit() {
+            if (!this.name || !this.review || !this.rating) {
+                alert("Validation failed")
+                return
+            }
             let productReview = {
                 name: this.name,
                 review: this.review,
